@@ -1,0 +1,6 @@
+---
+description: Project rules, shared with all AI tools
+alwaysApply: true
+---
+
+Follow the rules in `AGENTS.md` at the repo root. It is the single source of truth.

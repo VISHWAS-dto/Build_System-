@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model City {
+  id        String   @id @default(uuid())
+  name      String
+  state     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cinemas   Cinema[]
+
+  @@unique([name, state])
+}
+
+model Cinema {
+  id        String   @id @default(uuid())
+  name      String
+  address   String
+  cityId    String
+  city      City     @relation(fields: [cityId], references: [id])
+  screens   Screen[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([cityId, name])
+}
+
+model Screen {
+  id        String   @id @default(uuid())
+  name      String
+  cinemaId  String
+  cinema    Cinema   @relation(fields: [cinemaId], references: [id])
+  shows     Show[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([cinemaId, name])
+}
+
+model Movie {
+  id          String   @id @default(uuid())
+  title       String
+  language    String
+  durationMin Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  shows       Show[]
+
+  @@unique([title, language])
+}
+
+model Show {
+  id        String   @id @default(uuid())
+  movieId   String
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  screenId  String
+  screen    Screen   @relation(fields: [screenId], references: [id])
+  startsAt  DateTime
+  endsAt    DateTime
+  price     Int // smallest currency unit (paise)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([screenId, startsAt])
+  @@index([movieId, startsAt])
+}

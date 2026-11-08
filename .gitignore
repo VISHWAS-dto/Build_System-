@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+.vercel/
+.claude/settings.local.json
+.claude/audit.log
+dist/
+src/generated/
+coverage/
+logs/

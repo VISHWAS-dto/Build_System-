@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Sample Cinema Mumbai",
+    "address": "Kurla West",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "screens": ["Screen 1", "Screen 2"]
+  },
+  {
+    "name": "Sample Cinema Delhi",
+    "address": "Nehru Place",
+    "city": "Delhi",
+    "state": "Delhi",
+    "screens": ["Screen 1", "Screen 2"]
+  },
+  {
+    "name": "Sample Cinema Bengaluru",
+    "address": "Whitefield",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "screens": ["Screen 1", "Screen 2"]
+  }
+]
