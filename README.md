@@ -38,3 +38,4 @@ Redis and Elasticsearch are optional: set `REDIS_ENABLED=false` / `ELASTICSEARCH
 ## Docker image
 
 `docker build -t book-show .` builds a multi-stage production image (runs as non-root, port 3000).
+# Build_System-
